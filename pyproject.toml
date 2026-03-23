@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bitchat-nostr"
+version = "0.1.0"
+description = "BitChat-over-Nostr transport — NIP-17 gift wrap, relay client, embedded packet helpers"
+readme = "README.md"
+license = { text = "Unlicense" }
+requires-python = ">=3.10"
+keywords = ["bitchat", "nostr", "nip17", "relay", "p2p", "mesh"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: The Unlicense (Unlicense)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications",
+    "Typing :: Typed",
+]
+dependencies = [
+    "bitchat-protocol>=0.1.0",
+    "websockets>=12.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "mypy>=1.9"]
+
+[project.urls]
+"Source Code" = "https://github.com/bitchat-sdk/nostr-py"
+"Bug Tracker" = "https://github.com/bitchat-sdk/nostr-py/issues"
+"Changelog" = "https://github.com/bitchat-sdk/nostr-py/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["bitchat_nostr"]
+
+[tool.mypy]
+strict = true
+python_version = "3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
