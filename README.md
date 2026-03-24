@@ -111,7 +111,6 @@ class MyCrypto:
 ## Running Tests
 
 ```bash
-cd ecosystem/packages/python/bitchat_nostr
 pip install -e ".[dev]"
 pytest
 ```
