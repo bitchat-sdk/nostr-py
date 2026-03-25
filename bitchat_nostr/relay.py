@@ -91,7 +91,7 @@ class RelayClient:
     async def connect(self) -> None:
         """Connect to the relay WebSocket."""
         self._ws = await asyncio.wait_for(
-            websockets.connect(self.config.url),  # type: ignore[attr-defined]
+            websockets.connect(self.config.url),
             timeout=self.connect_timeout,
         )
         self._reconnect_attempts = 0
@@ -166,7 +166,7 @@ class RelayClient:
         try:
             async for raw in self._ws:
                 await self._handle_message(str(raw))
-        except (websockets.ConnectionClosed, asyncio.CancelledError):  # type: ignore[attr-defined]
+        except (websockets.ConnectionClosed, asyncio.CancelledError):
             pass
         except Exception as e:
             log.error("relay recv error: %s", e)
@@ -201,9 +201,9 @@ class RelayClient:
             sub_id = msg[1]
             if self.on_eose:
                 self.on_eose(str(sub_id))
-            handler = self._eose_handlers.get(sub_id)
-            if handler:
-                await handler(sub_id)
+            eose_handler = self._eose_handlers.get(sub_id)
+            if eose_handler:
+                await eose_handler(sub_id)
 
         elif verb == "OK" and len(msg) >= 3:
             event_id, ok = msg[1], msg[2]
