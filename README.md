@@ -1,5 +1,9 @@
 # bitchat-nostr
 
+[![PyPI](https://img.shields.io/pypi/v/bitchat-nostr)](https://pypi.org/project/bitchat-nostr/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://python.org)
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](https://unlicense.org)
+
 BitChat-over-Nostr transport for Python.
 
 Implements the relay transport layer for BitChat: NIP-17 gift-wrap private messages,
