@@ -2,6 +2,19 @@
 
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.1.2] — 2026-06-12
+
+### Changed
+- Constrained the `bitchat-protocol` dependency from `>=0.1.0` to `>=0.2.0,<0.3.0`.
+  This guarantees the `RequestSyncPacket` TLV codec (added in protocol-core 0.2.0)
+  is present and pins below the next major to avoid silently resolving a future
+  breaking release.
+- Version is now single-sourced from `bitchat_nostr/__init__.py` via hatch, so
+  `pyproject.toml` and `__version__` can no longer drift.
+
+> Version bumped to 0.1.2 to align all four BitChat `nostr` SDKs (Swift, Kotlin,
+> TypeScript, Python) on a common version. 0.1.1 was not released for Python.
+
 ## [0.1.0] — 2026-03-22
 
 Initial GA release.

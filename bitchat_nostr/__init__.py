@@ -42,7 +42,8 @@ from .relay import (
     ErrorHandler,
 )
 
-__version__ = "0.1.0"
+# Single source of truth for the package version (pyproject reads it via hatch).
+__version__ = "0.1.2"
 
 __all__ = [
     # Types

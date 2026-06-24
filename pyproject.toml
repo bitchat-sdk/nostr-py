@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "bitchat-nostr"
-version = "0.1.0"
+dynamic = ["version"]
 description = "BitChat-over-Nostr transport — NIP-17 gift wrap, relay client, embedded packet helpers"
 authors = [
     { name = "bitchat-sdk contributors" },
@@ -25,7 +25,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "bitchat-protocol>=0.1.0",
+    "bitchat-protocol>=0.2.0,<0.3.0",
     "websockets>=12.0",
 ]
 
@@ -36,6 +36,9 @@ dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "mypy>=1.9"]
 "Source Code" = "https://github.com/bitchat-sdk/nostr-py"
 "Bug Tracker" = "https://github.com/bitchat-sdk/nostr-py/issues"
 "Changelog" = "https://github.com/bitchat-sdk/nostr-py/blob/main/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "bitchat_nostr/__init__.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["bitchat_nostr"]
